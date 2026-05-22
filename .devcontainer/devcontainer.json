@@ -1,11 +1,11 @@
 {
     "name": "ROS 2 Development Container",
     "privileged": true,
-    "remoteUser": "YOUR_USERNAME",
+    "remoteUser": "fernando",
     "build": {
         "dockerfile": "Dockerfile",
         "args": {
-            "USERNAME": "YOUR_USERNAME"
+            "USERNAME": "fernando"
         }
     },
     "workspaceFolder": "/home/ws",
@@ -35,7 +35,8 @@
     ],
     "mounts": [
        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-       "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
+       "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
+       
     ],
     "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
 }
